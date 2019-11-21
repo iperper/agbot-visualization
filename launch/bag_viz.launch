@@ -1,0 +1,20 @@
+<launch>
+  <arg name="dataset" default="agbot_sensors_2019-11-15-11-54-35.bag" />
+  <arg name="path_to_dataset" default="$(eval env('HOME') + '/Documents/VNAV/' + arg('dataset'))"/>
+
+  <node name="visualization" pkg="visualization" type="visualization_node" output="screen" />
+  
+  <node name="viz" pkg="rviz" type="rviz" args="-d $(find visualization)/rviz/viz_all.rviz" />
+  <node name="rqt_plot1" pkg="rqt_plot" type="rqt_plot" args="--clear-config topics /encoder1_headed/data /encoder2_headed/data" />
+  <node name="rqt_plot2" pkg="rqt_plot" type="rqt_plot" args="--clear-config topics /motorcurrent1_headed/data /motorcurrent2_headed/data" />
+  <node name="rqt_plot3" pkg="rqt_plot" type="rqt_plot" args="--clear-config topics /speed1_headed/data /speed2_headed/data" />
+  <node name="rqt_plot4" pkg="rqt_plot" type="rqt_plot" args="--clear-config topics /imu/angular_velocity" />
+  <node name="rqt_plot5" pkg="rqt_plot" type="rqt_plot" args="--clear-config topics /imu/linear_acceleration" />
+  <node name="rqt_plot6" pkg="rqt_plot" type="rqt_plot" args="--clear-config topics /imu/orientation" />
+
+
+
+  <!-- Tip: press space on the terminal you ran this roslaunch to pause the rosbag-->
+  <node name="rosbag" pkg="rosbag" type="play" output="log"
+    args="--loop --clock $(arg path_to_dataset)"/>
+</launch>

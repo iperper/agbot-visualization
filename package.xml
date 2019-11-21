@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>visualization</name>
+  <version>0.0.0</version>
+  <description>The visualization package</description>
+  <maintainer email="iperper@mit.edu">iperper</maintainer>
+
+  <!-- One license tag required, multiple allowed, one license per tag -->
+  <!-- Commonly used license strings: -->
+  <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
+  <license>MIT</license>
+
+  <!-- <url type="website">http://wiki.ros.org/visualization</url> -->
+
+  <author email="iperper@mit.edu">Isaac Perper</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>geometry_msgs</depend>
+  <depend>roscpp</depend>
+  <depend>std_msgs</depend>
+  <depend>gflags_catkin</depend>
+  <depend>glog_catkin</depend>
+  <depend>sensor_msgs</depend>
+  <depend>message_filters</depend>
+  <build_depend>message_generation</build_depend>
+  <exec_depend>message_runtime</exec_depend>
+  <!-- <depend package="visualization" /> -->
+</package>
